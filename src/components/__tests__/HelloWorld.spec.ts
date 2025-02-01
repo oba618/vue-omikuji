@@ -1,11 +1,27 @@
 import { describe, it, expect } from 'vitest'
 
 import { mount } from '@vue/test-utils'
-import HelloWorld from '../HelloWorld.vue'
+import FortuneHeader from '../FortuneHeader.vue'
+import FortuneMain from '../FortuneMain.vue'
+import FortuneFooter from '../FortuneFooter.vue'
 
-describe('HelloWorld', () => {
-  it('renders properly', () => {
-    const wrapper = mount(HelloWorld, { props: { msg: 'Hello Vitest' } })
-    expect(wrapper.text()).toContain('Hello Vitest')
+describe('FortuneHeader', () => {
+  it('renders text', () => {
+    const header = mount(FortuneHeader)
+    expect(header.text()).toContain('vue-omikuji')
+  })
+})
+
+describe('FortuneMain', () => {
+  it('renders text', () => {
+    const header = mount(FortuneMain)
+    expect(header.text()).toContain('ボタンをクリックしてください')
+  })
+})
+
+describe('FortuneFooter', () => {
+  it('renders text', () => {
+    const header = mount(FortuneFooter)
+    expect(header.text()).toContain('since 2025')
   })
 })
