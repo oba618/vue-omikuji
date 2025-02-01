@@ -1,5 +1,13 @@
 <script setup lang="ts">
+import { ref } from 'vue'
 
+const fortuneResult = ref('')
+const isClicked = ref(false)
+
+function handleGetOmikuji() {
+  fortuneResult.value = "大吉"
+  isClicked.value = true
+}
 </script>
 
 <template>
@@ -7,8 +15,8 @@
     <div>
       <h2>ボタンをクリックしてください</h2>
       <div class="fortune-wrapper">
-        <button>おみくじを引く</button>
-        <p>result</p>
+        <button @click="handleGetOmikuji" v-bind:disabled="isClicked">おみくじを引く</button>
+        <p v-if="fortuneResult">結果：{{ fortuneResult }}</p>
       </div>
     </div>
   </main>
